@@ -8,7 +8,7 @@ import com.example.mapper.UserMapper;
 import com.example.properties.JwtProperties;
 import com.example.service.UserService;
 import com.example.util.JwtUtil;
-import com.example.util.WechatUtil;
+import com.example.util.WeChatUtil;
 import com.example.vo.UserInfoVO;
 import com.example.vo.UserVO;
 import lombok.extern.slf4j.Slf4j;
@@ -25,10 +25,12 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
     @Autowired
     private JwtProperties jwtProperties;
+    @Autowired
+    private WeChatUtil weChatUtil;
     @Override
     public UserVO userVO(UserDTO userDTO) {
         String code = userDTO.getCode();
-        String openId = WechatUtil.getOpenId(code);
+        String openId = weChatUtil.getOpenId(code);
         QueryWrapper<User> userQueryWrapper = new QueryWrapper<>();
         userQueryWrapper.eq("open_id", openId);
         User user = userMapper.selectOne(userQueryWrapper);

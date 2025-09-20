@@ -2,10 +2,8 @@ package com.example.controller.user;
 
 import com.example.context.BaseContext;
 import com.example.dto.UserDTO;
-import com.example.entity.User;
 import com.example.result.Result;
 import com.example.service.UserService;
-import com.example.util.WechatUtil;
 import com.example.vo.UserInfoVO;
 import com.example.vo.UserVO;
 import lombok.extern.slf4j.Slf4j;
