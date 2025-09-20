@@ -1,0 +1,38 @@
+@startuml PostInteraction
+title 帖子交互流程
+
+partition "帖子详情" {
+    :显示帖子内容;
+    :显示评论列表;
+
+    fork
+        :点赞帖子;
+    fork again
+        :转发帖子;
+    fork again
+        :举报帖子;
+    fork again
+        :发表评论;
+        fork
+            :回复评论;
+        end fork
+    fork again
+        :查看发帖人主页;
+        :私聊发帖人;
+    fork again
+        :查看评论人主页;
+        :私聊评论人;
+    end fork
+}
+partition "发布帖子" {
+    :选择话题分类;
+    :输入标题和内容;
+    :提交发布;
+
+    if (是否为管理员?) then (否)
+        :等待审核;
+    else (是)
+        :直接发布;
+    endif
+}
+@enduml
