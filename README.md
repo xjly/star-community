@@ -10,5 +10,5 @@
 
 最后使用`Hbuilder X`的一键启动
 
-在server里需要配置腾讯云
+在`server`文件夹下的`application.yaml`中你还需要里需要配置`腾讯云COS`参数，自己的微信小程序参数，`JWT`参数等。
 
